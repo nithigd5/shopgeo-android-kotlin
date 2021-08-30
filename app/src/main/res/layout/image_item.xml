@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="image"
+            type="String" />
+        <variable
+            name="Listener"
+            type="app.shopgeo.in.user.product.Listener" />
+    </data>
+        <ImageView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:ImageUrl="@{image}"
+            android:layout_marginBottom="5dp"
+        android:onClick="@{()->Listener.onClick(image)}"
+        tools:src="@tools:sample/backgrounds/scenic"
+        />
+</layout>

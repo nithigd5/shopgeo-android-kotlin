@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<app.shopgeo.in.user.TouchImageView
+    android:id="@+id/images_zoom"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:focusable="true"
+    android:clickable="true" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

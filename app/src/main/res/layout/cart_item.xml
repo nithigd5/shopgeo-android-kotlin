@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+    <variable
+        name="listener"
+        type="app.shopgeo.in.user.my_cart.Listener" />
+    <variable
+        name="cart"
+        type="app.shopgeo.in.user.network.Cart"/>
+    </data>
+<com.google.android.material.card.MaterialCardView
+    android:id="@+id/cartItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="2dp"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="5dp"
+    android:onClick="@{()->listener.onClick(cart)}">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:ImageUrl = "@{cart.image}"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2"
+            tools:text="@tools:sample/full_names"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:Title="@{cart.title}"/>
+
+        <TextView
+            android:id="@+id/product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:textColor="#4CAF50"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/title"
+            app:layout_constraintStart_toStartOf="@+id/title"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            app:layout_constraintVertical_bias="0.120000005"
+            app:cart_item_price="@{cart}"
+            tools:text="per/ 540₹" />
+
+        <TextView
+            android:id="@+id/total_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="#000"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/product_price"
+            app:layout_constraintTop_toBottomOf="@+id/product_price"
+            app:layout_constraintVertical_bias="0.52"
+            app:cart_total_price="@{cart}"
+            tools:text="Total Cost: 1080₹" />
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/qty"-->
+<!--            style="@style/ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            app:boxBackgroundColor="#1E88E5"-->
+<!--            app:boxBackgroundMode="outline"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.31"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/title"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.35000002"-->
+<!--            app:prefixText="@string/qty"-->
+<!--            app:prefixTextAppearance="@style/TextAppearance.AppCompat.Small"-->
+<!--            app:prefixTextColor="#FFFFFF">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent" />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+        <EditText
+            android:id="@+id/quantity"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/qty"
+            android:inputType="numberSigned"
+            android:maxEms="100"
+            android:minEms="1"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toEndOf="@+id/product_price"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.508"
+            tools:text="1"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageButton
+        android:id="@+id/delete"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="end|top"
+        android:background="@drawable/ic_baseline_cancel_24"
+        style="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+        android:onClick="@{()->listener.onDelete(cart)}"/>
+
+</com.google.android.material.card.MaterialCardView>
+
+
+
+</layout>

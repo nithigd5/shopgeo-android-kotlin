@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/aldrich</item>
+        <item>@font/alfa_slab_one</item>
+        <item>@font/butterfly_kids</item>
+        <item>@font/griffy</item>
+        <item>@font/open_sans</item>
+        <item>@font/open_sans_light</item>
+        <item>@font/poppins</item>
+        <item>@font/poppins_medium</item>
+        <item>@font/righteous</item>
+        <item>@font/roboto</item>
+        <item>@font/roboto_bold</item>
+        <item>@font/roboto_thin</item>
+    </array>
+</resources>

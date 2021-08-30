@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:liftOnScroll="true"
+        android:background="#FFff"
+        style="@style/Widget.MaterialComponents.AppBarLayout.Surface">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            tools:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
+            app:menu="@menu/app_bar"
+            app:title="@string/my_cart"
+            android:background="#FFFF"
+            app:navigationIcon="@drawable/ic_baseline_menu_24"
+            app:titleCentered="true"
+            app:titleTextColor="@color/primaryColor"
+            app:titleTextAppearance="@style/app_title"
+            app:navigationIconTint="@color/primaryColor"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            style="@style/Widget.MaterialComponents.Toolbar.Surface"
+            />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/info_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/login_failed"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/login"
+                android:text="@string/login"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:textColor="@color/white"
+                android:layout_margin="20dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/cart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f5f6f7"
+            android:visibility="visible"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="1dp"
+                android:layout_marginTop="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp">
+
+                    <TextView
+                        android:id="@+id/delivery_address"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="10"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/open_sans"
+                        android:maxLines="1"
+                        tools:text="Deliver to : Salem" />
+
+                    <Button
+                        android:id="@+id/change"
+                        android:layout_width="80dp"
+                        android:layout_height="45dp"
+                        android:textSize="12sp"
+                        android:layout_weight="0.5"
+                        android:layout_gravity="end"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:text="@string/change" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cartList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="50dp"
+                tools:listitem="@layout/cart_item"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar2"
+        style="@style/Widget.MaterialComponents.BottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom" >
+        <TextView
+            android:id="@+id/cart_total_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto"
+            android:textSize="18sp"
+            tools:text="Total Cost: 5,000₹"/>
+        <Button
+            android:id="@+id/checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+            android:text="@string/checkout"
+            android:layout_gravity="end"
+            android:layout_marginEnd="20dp"
+            />
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:padding="10dp"
+        app:cardCornerRadius="20dp"
+        android:id="@+id/address_bottomSheet"
+        app:cardElevation="5dp"
+        >
+    <LinearLayout
+     android:layout_width="match_parent"
+      android:layout_height="match_parent"
+     android:orientation="vertical"
+        android:padding="10dp"
+        android:minHeight="200dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose Address:"
+        android:textAlignment="center"
+        android:textColor="@color/primaryColor"
+        android:layout_marginBottom="10dp"
+        style="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+    <RadioGroup
+        android:id="@+id/userAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+    </RadioGroup>
+
+        <Button
+            android:id="@+id/add_address"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:textSize="12sp"
+            style="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+            android:text="@string/add_adress" />
+</LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>

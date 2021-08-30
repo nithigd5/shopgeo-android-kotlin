@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:liftOnScroll="true"
+    android:background="#FFff"
+    style="@style/Widget.MaterialComponents.AppBarLayout.Surface"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            tools:navigationIcon="@drawable/ic_baseline_menu_24"
+            app:title="@string/app_name"
+            app:menu="@menu/cart"
+            android:background="#FFFF"
+            app:navigationIcon="@drawable/ic_baseline_menu_24"
+            app:titleCentered="true"
+            app:titleTextColor="@color/primaryColor"
+            app:titleTextAppearance="@style/app_title"
+            app:navigationIconTint="@color/primaryColor"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            style="@style/Widget.MaterialComponents.Toolbar.Surface"
+            />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            app:startIconDrawable="@drawable/ic_search"
+            app:startIconTint="#616161"
+            style="@style/search_input"
+            app:hintEnabled="true"
+            android:layout_marginBottom="5dp"
+            android:hint="@string/search_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/search_bar_input"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:focusable="false"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="app.shopgeo.in.user.home.Home">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="app.shopgeo.in.user.home.HomeViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f5f6f7"
+        >
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:liftOnScroll="true"
+            android:background="#FFff"
+            style="@style/Widget.MaterialComponents.AppBarLayout.Surface">
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                tools:navigationIcon="@drawable/ic_baseline_menu_24"
+                app:title="@string/app_name"
+                app:menu="@menu/cart"
+                android:background="#FFFF"
+                app:navigationIcon="@drawable/ic_baseline_menu_24"
+                app:titleCentered="true"
+                app:titleTextColor="@color/primaryColor"
+                app:titleTextAppearance="@style/app_title"
+                app:navigationIconTint="@color/primaryColor"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                style="@style/Widget.MaterialComponents.Toolbar.Surface"
+                />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                app:startIconDrawable="@drawable/ic_search"
+                app:startIconTint="#616161"
+                style="@style/search_input"
+                app:hintEnabled="true"
+                android:layout_marginBottom="5dp"
+                android:hint="@string/search_title">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/search_bar_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:focusable="false"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!--        <HorizontalScrollView-->
+<!--            android:id="@+id/chips"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
+
+<!--            <com.google.android.material.chip.ChipGroup-->
+<!--                android:id="@+id/region_list"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:singleSelection="true"-->
+<!--                android:padding="@dimen/spacing_normal"/>-->
+
+<!--        </HorizontalScrollView>-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/productitem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:spanCount="1"
+            tools:listitem="@layout/products"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"/>
+
+        <ImageView
+            android:id="@+id/status_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:NetworkStatus="@{viewModel.eventNetworkError}"
+            android:layout_gravity="center"
+            android:contentDescription="@string/network_status"
+/>
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>

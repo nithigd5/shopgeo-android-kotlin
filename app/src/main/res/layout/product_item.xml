@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="app.shopgeo.in.user.home.Home">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="product"
+            type="app.shopgeo.in.user.database.DatabaseProduct" />
+        <variable
+            name="clickListener"
+            type="app.shopgeo.in.user.home.ProductListener" />
+        <variable
+            name="wishList"
+            type="Boolean" />
+    </data>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="1dp"
+        android:layout_margin="6dp"
+        app:cardCornerRadius="8dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TextAppearance.ProductTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/open_sans"
+            android:maxLines="2"
+            android:textColor="#000000"
+            android:textSize="10sp"
+            app:Title="@{product.title}"
+            tools:text="Title Product shopgeo " />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                >
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@{product.Title}"
+                    app:ImageUrl="@{product.Images.get(0)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+                    tools:srcCompat="@drawable/ic_broken_image"
+                    android:onClick="@{() -> clickListener.onClick(product)}"/>
+
+
+                <LinearLayout
+                    android:id="@+id/linearLayout5"
+                    android:layout_width="30dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="top|start"
+                    android:layout_marginStart="8dp"
+                    android:background="#43A047"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="2dp"
+                        android:fontFamily="@font/open_sans"
+                        android:textColor="@color/white"
+                        android:textSize="8sp"
+                        app:prod_rating="@{product.rating}"
+                        tools:text="4.5" />
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        app:srcCompat="@drawable/ic_baseline_star_24" />
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/favourite"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_gravity="end"
+                    android:button="@drawable/favourite_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:onClick="@{()->clickListener.onWish(product)}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:isFavourite="@{wishList}"/>
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:onClick="@{() -> clickListener.onClick(product)}">
+
+                <TextView
+                    android:id="@+id/prod_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:textColor="#4CAF50"
+                    app:rupee="@{product}"
+                    android:fontFamily="@font/righteous"
+                    android:paddingEnd="10dp"
+                    tools:text="450 ₹" />
+
+                <TextView
+                    android:id="@+id/prod_discount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:fontFamily="@font/righteous"
+                    android:textColor="#000000"
+                    android:textSize="12sp"
+                    app:discount="@{product}"
+                    tools:text="50% off" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/prod_mrp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="#F40000"
+                android:textSize="10sp"
+                android:layout_gravity="center"
+                app:mrp="@{product}"
+                tools:text="500 ₹" />
+
+        </LinearLayout>
+    </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/user_login"
+        android:checkableBehavior="single">
+    <item
+        android:id="@+id/login_now"
+        android:checkable="true"
+        android:enabled="true"
+        android:title="@string/login" />
+    <item
+        android:id="@+id/register"
+        android:checkable="true"
+        android:enabled="true"
+        android:title="@string/register" />
+    </group>
+    <group>
+        <item
+            android:id="@+id/exploreCategory"
+            android:checkable="true"
+            android:title="@string/explore_categories"/>
+    </group>
+    <group
+        android:id="@+id/interactions"
+        android:checkableBehavior="single">
+    <item
+        android:id="@+id/home2"
+        android:enabled="true"
+        android:title="@string/home" />
+        <item
+        android:id="@+id/myCart"
+        android:checkable="true"
+        android:enabled="true"
+        android:title="@string/my_cart" />
+    <item
+        android:id="@+id/myAccount"
+        android:checkable="true"
+        android:enabled="true"
+        android:title="@string/my_account" />
+        <item
+        android:id="@+id/myWishList"
+        android:checkable="true"
+        android:enabled="true"
+        android:title="@string/my_wishlist" />
+        <item
+        android:id="@+id/myOrders"
+        android:checkable="true"
+        android:enabled="true"
+        android:title="@string/my_orders" />
+    </group>
+    <group
+        android:id="@+id/policies"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/Legals"
+            android:title="@string/our_legals">
+            <menu>
+                <item
+                    android:id="@+id/privacy"
+                    android:title="@string/privacy_policy" />
+
+                <item
+                    android:id="@+id/terms"
+                    android:title="@string/terms_and_conditions" />
+                <item
+                    android:id="@+id/returnpolicy"
+                    android:title="@string/return_policy" />
+            </menu>
+        </item>
+    </group>
+
+</menu>

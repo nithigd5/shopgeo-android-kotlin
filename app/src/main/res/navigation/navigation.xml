@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/home2">
+
+    <fragment
+        android:id="@+id/home2"
+        android:name="app.shopgeo.in.user.home.Home"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home2_to_productFragment"
+            app:destination="@id/productFragment" />
+        <action
+            android:id="@+id/action_home2_to_login_now"
+            app:destination="@id/login_now"
+            app:popUpTo="@id/home2"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_home2_self"
+            app:destination="@id/home2" />
+        <action
+            android:id="@+id/action_home2_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_home2_to_exploreCategory"
+            app:destination="@id/exploreCategory" />
+    </fragment>
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="app.shopgeo.in.user.product.ProductFragment"
+        android:label="ProductFragment"
+        tools:layout="@layout/fragment_product"
+        >
+        <argument
+            android:name="productId"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_productFragment_to_home2"
+            app:destination="@id/home2"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/home2"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_productFragment_to_myCart"
+            app:destination="@id/myCart" />
+        <action
+            android:id="@+id/action_productFragment_to_imageViewer2"
+            app:destination="@id/imageViewer" />
+    </fragment>
+    <fragment
+        android:id="@+id/myCart"
+        android:name="app.shopgeo.in.user.my_cart.MyCart"
+        android:label="my_cart_fragment"
+        tools:layout="@layout/my_cart_fragment" >
+        <action
+            android:id="@+id/action_myCart_to_productFragment"
+            app:destination="@id/productFragment" />
+        <action
+            android:id="@+id/action_myCart_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_myCart_to_login_now"
+            app:destination="@id/login_now" />
+    </fragment>
+    <fragment
+        android:id="@+id/login_now"
+        android:name="app.shopgeo.in.user.login.Login"
+        android:label="Login" >
+        <action
+            android:id="@+id/action_login_now_to_home2"
+            app:destination="@id/home2"
+            app:popUpTo="@id/home2"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/myOrders"
+        android:name="app.shopgeo.in.user.myOrders.MyOrders"
+        android:label="MyOrders" >
+        <action
+            android:id="@+id/action_myOrders_to_productFragment"
+            app:destination="@id/productFragment"
+            app:popUpTo="@id/productFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_myOrders_to_orderDetail"
+            app:destination="@id/orderDetail"
+            app:popUpTo="@id/myOrders"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="app.shopgeo.in.user.search.SearchFragment"
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_productFragment"
+            app:destination="@id/productFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_myCart"
+            app:destination="@id/myCart" />
+    </fragment>
+    <fragment
+        android:id="@+id/myAccount"
+        android:name="app.shopgeo.in.user.myAccount.MyAccount"
+        android:label="MyAccount" >
+        <action
+            android:id="@+id/action_myAccount_to_myCart"
+            app:destination="@id/myCart" />
+        <action
+            android:id="@+id/action_myAccount_to_myOrders"
+            app:destination="@id/myOrders" />
+        <action
+            android:id="@+id/action_myAccount_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/myWishList"
+        android:name="app.shopgeo.in.user.myWishlist.MyWishList"
+        android:label="MyWishList" >
+        <action
+            android:id="@+id/action_myWishList_to_productFragment"
+            app:destination="@id/productFragment" />
+        <action
+            android:id="@+id/action_myWishList_to_myCart"
+            app:destination="@id/myCart" />
+    </fragment>
+    <fragment
+        android:id="@+id/legals"
+        android:name="app.shopgeo.in.user.legals.Legals"
+        android:label="legals_fragment"
+        tools:layout="@layout/legals_fragment" />
+    <fragment
+        android:id="@+id/orderDetail"
+        android:name="app.shopgeo.in.user.myOrders.OrderDetail"
+        android:label="OrderDetail" >
+        <argument
+            android:name="orderId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/subCategory"
+        android:name="app.shopgeo.in.user.category.SubCategory"
+        android:label="SubCategory" />
+    <fragment
+        android:id="@+id/exploreCategory"
+        android:name="app.shopgeo.in.user.category.ExploreCategory"
+        android:label="explore_category_fragment"
+        tools:layout="@layout/explore_category_fragment" >
+        <action
+            android:id="@+id/action_exploreCategory_to_subCategory"
+            app:destination="@id/subCategory" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageViewer"
+        android:name="app.shopgeo.in.user.product.ImageViewer"
+        android:label="ImageViewer" >
+        <argument
+            android:name="images"
+            app:argType="app.shopgeo.in.user.product.ViewerImages" />
+    </fragment>
+</navigation>

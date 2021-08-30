@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.denzcoskun.imageslider.ImageSlider xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/image_slider"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    app:iss_placeholder="@drawable/ic_broken_image"
+    app:iss_corner_radius="15"
+    android:elevation="1dp"
+    app:iss_auto_cycle="true"
+    app:iss_delay="0"
+    android:minHeight="150dp"
+    android:maxHeight="220dp"
+    app:iss_period="2000" />
