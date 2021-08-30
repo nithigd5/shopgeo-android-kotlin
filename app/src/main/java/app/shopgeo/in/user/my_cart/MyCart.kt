@@ -66,6 +66,7 @@ class MyCart : Fragment() {
                binding.info.visibility = View.VISIBLE
                binding.cart.visibility = View.GONE
                binding.infoMsg.text = getString(R.string.cart_empty)
+               binding.login.visibility = View.GONE
            }else{
                binding.cart.visibility = View.VISIBLE
                binding.info.visibility = View.GONE
